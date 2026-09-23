@@ -51,7 +51,12 @@ watch(mode, (next) => {
 
 function safeRedirect(): string {
   const value = typeof route.query.redirect === 'string' ? route.query.redirect : ''
-  return value.startsWith('/') && !value.startsWith('//') && !['/login', '/register'].includes(value) ? value : '/'
+  if (!value.startsWith('/') || value.startsWith('//') || /[\\\x00-\x1f]/.test(value)) return '/'
+  try {
+    const destination = new URL(value, window.location.origin)
+    if (destination.origin !== window.location.origin || /^\/(login|register)(\/|$)/.test(destination.pathname)) return '/'
+    return destination.pathname + destination.search + destination.hash
+  } catch { return '/' }
 }
 
 async function submitLogin() {
@@ -90,7 +95,10 @@ async function submitRegister() {
   finally { busy.value = false }
 }
 
-async function switchAccount() { await auth.logout(); clearSecrets() }
+async function switchAccount() {
+  try { await auth.logout() } catch { error.value = t('audit.sessionLogoutFailed') }
+  finally { loginForm.password = ''; registerForm.password = ''; registerForm.verificationCode = '' }
+}
 onUnmounted(() => window.clearInterval(timer))
 </script>
 
