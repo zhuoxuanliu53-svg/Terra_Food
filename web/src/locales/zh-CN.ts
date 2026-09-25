@@ -1,4 +1,16 @@
 export default {
+  location: {
+    cityNavigation: '找不到位置？先跳到已收录城市，再点选实际地点',
+    chooseCity: '选择城市（不会自动作为美食坐标）',
+    title: '美食位置',
+    entryHelp: '定位不是必选项：可使用当前位置、返回地图选点，或直接填写下方经纬度。请填写美食实际位置。',
+    useCurrent: '使用当前位置',
+    pickMap: '返回地图选点',
+    manualEntry: '手动填写位置',
+    verifyPosition: '已填入定位坐标，请核对是否为美食位置，并补充省市和地址。',
+    addressUnavailable: '地址识别暂不可用，坐标已保留，可直接收录并手动补充地址。',
+  },
+
   audit: {"close": "关闭", "confirmingSession": "正在确认当前账号…", "deleteCheckinConfirm": "删除“{name}”的这次打卡？", "checkinUpdateError": "打卡修改失败，请刷新后重试。", "checkinDeleteError": "打卡删除失败，请重试。", "checkinLoadError": "打卡加载失败，请重试。", "checkinSaveError": "打卡保存失败，请稍后重试。", "loadedStatuses": "已加载记录的审核状态", "loaded": "已加载", "mapStale": "地图更新失败，当前展示的是上次结果。", "filters": "筛选", "savedFoods": "已收藏的珍馐", "regionsError": "地区加载失败", "allRegions": "全部地区", "sort": "排序", "relevance": "相关性", "heat": "热度优先", "newest": "最新收录", "onlyMapBounds": "仅当前地图范围", "findTags": "搜索口味、食材、菜系标签", "partialTagCoverage": "部分历史菜品尚未补充标签。标签筛选只包含已确认的标注。", "loginForFavorites": "登录后查看收藏", "manageFavorites": "管理全部收藏", "draftNotSaved": "浏览器无法保存草稿，关闭或刷新前请完成提交。", "sessionLogoutFailed": "本机私人内容已清除，但服务器退出未确认。请重试退出。", "diaryTitle": "我的打卡", "diaryHint": "记录真正吃过的珍馐，公开或仅自己可见。", "emptyDiary": "还没有打卡，去菜品详情记录第一次体验吧。", "edit": "编辑", "delete": "删除", "save": "保存", "diaryPlaceholder": "这次有什么新的味觉记忆？", "loadMore": "加载更多"},
   archive: {
     motto: '山河有味 · 人间长食', foodDossier: '风味档案', noCover: '风味影像 · 待收录',
@@ -265,7 +277,7 @@ export default {
     regionPath: '全国 / {province} / {city}',
     latitude: '纬度',
     longitude: '经度',
-    coordinateTip: '可先关闭表单并点击地图选取位置，再次打开时会自动带入坐标、地区和详细地址。',
+    coordinateTip: '可直接输入准确经纬度；也可返回地图选点后再次打开，已填写的文字会保留。',
     regionCoordinateMismatch: '所选地区与地图坐标不匹配，请恢复地图识别的地区，或重新在地图上选点。',
     address: '详细地址',
     addressPlaceholder: '地图点击后会自动带入，也可手动补充',
@@ -280,7 +292,7 @@ export default {
     imageNeedsReselect: '已选择的封面在刷新页面后需重新选择',
     imageTip: '可选；支持 JPG、PNG、WebP，最大 5MB',
     regionRequired: '请选择所属地区。',
-    coordinateRequired: '请先在地图上点击选择坐标。',
+    coordinateRequired: '请填写有效经纬度，或使用定位、地图选点。',
     pendingSuccess: '菜品已提交，管理员审批通过后会显示在地图上。',
     saveError: '保存失败，请检查填写内容和后端服务。',
     imageUploadError: '图片上传失败，请检查格式和大小后重试。',
